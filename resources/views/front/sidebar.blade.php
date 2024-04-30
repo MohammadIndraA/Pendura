@@ -1,0 +1,13 @@
+@if ($aqi >= 0 && $aqi <= 50)
+    @includeIf('kategori.baik')
+@elseif($aqi >= 51 && $aqi <= 100)
+    @includeIf('kategori.sedang')
+@elseif($aqi >= 101 && $aqi <= 150)
+    @includeIf('kategori.sebagianKelompok')
+@elseif($aqi >= 151 && $aqi <= 200)
+    @includeIf('kategori.tidakSehat')
+@elseif($aqi >= 201 && $aqi <= 300)
+@includeIf('kategori.sangatTidakSehat')
+@elseif($aqi >= 301)
+   @includeIf('kategori.bahaya')
+@endif
