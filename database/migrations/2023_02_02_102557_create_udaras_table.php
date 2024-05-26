@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('mq_135');
             $table->string('mq_09');
             $table->string('mq_07');
-            $table->timestamps('timestamps');
+            $table->timestamp('timestamps');
             $table->timestamps();
         });
     }

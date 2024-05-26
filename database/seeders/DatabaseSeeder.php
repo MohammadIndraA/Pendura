@@ -53,6 +53,7 @@ class DatabaseSeeder extends Seeder
                         'mq_09' => rand(80, 110),
                         'mq_07' => rand(80, 110),
                         'mq_135' => rand(80, 110),
+                        'timestamps' => $currentDate,
                         'created_at' => $currentDate,
                         'updated_at' => $currentDate,
                     ];
