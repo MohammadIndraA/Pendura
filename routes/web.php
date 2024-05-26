@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontController::class, 'index'])->middleware('guest');
+Route::get('/get-data', [FrontController::class, 'getData'])->middleware('guest');
 Route::get('/login', [UserController::class, 'index'])->name('login')->middleware('guest');
 Route::get('/login/store', [UserController::class, 'store'])->name('login.store');
 Route::middleware('auth')->group(function(){
@@ -26,5 +27,6 @@ Route::middleware('auth')->group(function(){
     Route::get('/logout', [UserController::class, 'logout']);
     Route::resource('/udara' , UdaraController::class);
     Route::get('/udara-store' , [UdaraController::class, 'store']);
+    Route::post('/send-data-udara' , [UdaraController::class, 'sendData']);
 });
 // Route::resource('/tempat', DomisiliController::class);

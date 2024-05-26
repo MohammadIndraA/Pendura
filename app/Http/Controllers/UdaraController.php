@@ -2,6 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataLokasi1;
+use App\Models\DataLokasi10;
+use App\Models\DataLokasi2;
+use App\Models\DataLokasi3;
+use App\Models\DataLokasi4;
+use App\Models\DataLokasi5;
+use App\Models\DataLokasi6;
+use App\Models\DataLokasi7;
+use App\Models\DataLokasi8;
+use App\Models\DataLokasi9;
 use App\Models\MQ09;
 use App\Models\MQ135;
 use App\Models\Udara;
@@ -24,8 +34,39 @@ class UdaraController extends Controller
         // $mq_135 = MQ135::orderBy('id', 'desc')->get();
         // $mq_09 = MQ09::orderBy('id', 'desc')->get();
         // $mq_07 = DB::table('mq_07')->orderBy('id', 'desc')->get();
-
-        $udara = Udara::all();
+        $udara = Udara::orderBy('id','desc')->paginate(10);
+        if ($request->penempatan) {
+            if ($request->penempatan == 1) {
+               $udara = DataLokasi1::with(['lokasi'])->orderBy('id','desc')->paginate(100)->withQueryString();
+            }
+            if ($request->penempatan == 2) {
+               $udara = DataLokasi2::with(['lokasi'])->orderBy('id','desc')->paginate(100)->withQueryString();
+            }
+            if ($request->penempatan == 3) {
+               $udara = DataLokasi3::with(['lokasi'])->orderBy('id','desc')->paginate(100)->withQueryString();
+            }
+            if ($request->penempatan == 4) {
+               $udara = DataLokasi4::with(['lokasi'])->orderBy('id','desc')->paginate(100)->withQueryString();
+            }
+            if ($request->penempatan == 5) {
+               $udara = DataLokasi5::with(['lokasi'])->orderBy('id','desc')->paginate(100)->withQueryString();
+            }
+            if ($request->penempatan == 6) {
+               $udara = DataLokasi6::with(['lokasi'])->orderBy('id','desc')->paginate(100)->withQueryString();
+            }
+            if ($request->penempatan == 7) {
+               $udara = DataLokasi7::with(['lokasi'])->orderBy('id','desc')->paginate(100)->withQueryString();
+            }
+            if ($request->penempatan == 8) {
+               $udara = DataLokasi8::with(['lokasi'])->orderBy('id','desc')->paginate(100)->withQueryString();
+            }
+            if ($request->penempatan == 9) {
+               $udara = DataLokasi9::with(['lokasi'])->orderBy('id','desc')->paginate(100)->withQueryString();
+            }
+            if ($request->penempatan == 10) {
+               $udara = DataLokasi10::with(['lokasi'])->orderBy('id','desc')->paginate(100)->withQueryString();
+            }
+        }
         return view('udara.index', compact('udara'));
     }
 
@@ -108,5 +149,71 @@ class UdaraController extends Controller
     public function destroy(Udara $udara)
     {
         //
+    }
+
+    public function sendData() {
+        DataLokasi1::create([
+            'mq_09' => rand(20, 140),
+            'mq_07' => rand(50, 105),
+            'mq_135' => rand(20, 90),
+            'lokasi_id' => 1,
+        ]);
+        DataLokasi2::create([
+            'mq_09' => rand(30, 95),
+            'mq_07' => rand(40, 170),
+            'mq_135' => rand(50, 94),
+            'lokasi_id' => 2,
+        ]);
+        DataLokasi3::create([
+            'mq_09' => rand(40, 100),
+            'mq_07' => rand(30, 98),
+            'mq_135' => rand(50, 97),
+            'lokasi_id' => 3,
+        ]);
+        DataLokasi4::create([
+            'mq_09' => rand(40, 99),
+            'mq_07' => rand(33, 140),
+            'mq_135' => rand(55, 109),
+            'lokasi_id' => 4,
+        ]);
+        DataLokasi5::create([
+            'mq_09' => rand(35, 97),
+            'mq_07' => rand(35, 99),
+            'mq_135' => rand(45, 100),
+            'lokasi_id' => 5,
+        ]);
+        DataLokasi6::create([
+            'mq_09' => rand(46, 100),
+            'mq_07' => rand(50, 98),
+            'mq_135' => rand(44, 97),
+            'lokasi_id' => 6,
+        ]);
+        DataLokasi7::create([
+            'mq_09' => rand(40, 100),
+            'mq_07' => rand(30, 109),
+            'mq_135' => rand(45, 130),
+            'lokasi_id' => 7,
+        ]);
+        DataLokasi8::create([
+            'mq_09' => rand(40, 120),
+            'mq_07' => rand(45, 100),
+            'mq_135' => rand(50, 99),
+            'lokasi_id' => 8,
+        ]);
+        DataLokasi9::create([
+            'mq_09' => rand(50, 110),
+            'mq_07' => rand(40, 97),
+            'mq_135' => rand(30, 99),
+            'lokasi_id' => 9,
+        ]);
+        DataLokasi10::create([
+            'mq_09' => rand(30, 120),
+            'mq_07' => rand(40, 89),
+            'mq_135' => rand(40, 110),
+            'lokasi_id' => 10,
+        ]);
+        return response()->json([
+            'message' => 'success',
+        ]);
     }
 }

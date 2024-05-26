@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('udaras', function (Blueprint $table) {
+        Schema::create('data_lokasi1s', function (Blueprint $table) {
             $table->id();
             $table->string('mq_135');
             $table->string('mq_09');
             $table->string('mq_07');
-            $table->timestamps('timestamps');
+            $table->unsignedBigInteger('lokasi_id');
+            $table->foreign('lokasi_id')->references('id')->on('lokasis');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('udaras');
+        Schema::dropIfExists('data_lokasi1s');
     }
 };

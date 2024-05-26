@@ -18,9 +18,9 @@ class UdaraFactory extends Factory
     public function definition()
     {
         return [
-            'mq_135' => $this->faker->numberBetween(50, 200),
-            'mq_09' => $this->faker->numberBetween(50, 200),
-            'mq_07' => $this->faker->numberBetween(50, 200),
+            'mq_135' => $this->faker->numberBetween(80, 150),
+            'mq_09' => $this->faker->numberBetween(80, 150),
+            'mq_07' => $this->faker->numberBetween(80, 150),
             'created_at' => now()->toDateString() // Ini akan menggunakan tanggal saat ini
         ];
     }
@@ -36,14 +36,14 @@ class UdaraFactory extends Factory
             static $date = null;
 
             if (is_null($date)) {
-                $date = Carbon::createFromFormat('Y-m-d', '2024-04-09');
+                $date = Carbon::createFromFormat('Y-m-d', '2024-05-01');
             } else {
                 $date->addDay();
             }
 
             // Reset tanggal jika melewati 9 Mei 2024
-            if ($date->gt(Carbon::createFromFormat('Y-m-d', '2024-05-09'))) {
-                $date = Carbon::createFromFormat('Y-m-d', '2024-04-09');
+            if ($date->gt(Carbon::createFromFormat('Y-m-d', '2024-05-26'))) {
+                $date = Carbon::createFromFormat('Y-m-d', '2024-04-01');
             }
 
             $udara->created_at = $date->format('Y-m-d H:i:s');
