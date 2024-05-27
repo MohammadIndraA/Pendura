@@ -104,11 +104,11 @@
     <script>
         $(document).ready(function() {
             // addUdaraDataSatu();
-            setInterval(() => {
-                addUdaraDataSatu();
-            }, 1800000);
         });
-        // 1800000
+        setInterval(() => {
+            addUdaraDataSatu();
+        }, 1800000);
+
         function addUdaraDataSatu() {
             $.ajax({
                 url: '/send-data-udara',
