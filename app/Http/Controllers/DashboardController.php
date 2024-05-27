@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataLokasi1;
 use App\Models\Udara;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -10,14 +11,51 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        
-        $chart_mq135 = Udara::pluck('mq_135')->toArray();
-        $chart_mq09 = Udara::pluck('mq_09')->toArray();
-        $chart_mq07 = Udara::pluck('mq_07')->toArray();
-        $time = Udara::pluck('created_at')->map(function ($createdAt) {
-            return $createdAt->format('Y-m-d'); // Extract date part in 'YYYY-MM-DD' format
-        })->toArray();
+        // semua
+        // $chart_mq135 = Udara::pluck('mq_135')->toArray();
+        // $chart_mq09 = Udara::pluck('mq_09')->toArray();
+        // $chart_mq07 = Udara::pluck('mq_07')->toArray();
+        // $time = Udara::pluck('created_at')->map(function ($createdAt) {
+        //     return $createdAt->format('Y-m-d'); // Extract date part in 'YYYY-MM-DD' format
+        // })->toArray();
 
+        // Mendapatkan tanggal hari ini dalam format 'Y-m-d'
+        // $today = Carbon::today()->toDateString();
+
+        // // Mengambil data hanya untuk hari ini
+        // $chart_mq135 = DataLokasi1::whereDate('created_at', $today)->pluck('mq_135')->toArray();
+        // $chart_mq09 = DataLokasi1::whereDate('created_at', $today)->pluck('mq_09')->toArray();
+        // $chart_mq07 = DataLokasi1::whereDate('created_at', $today)->pluck('mq_07')->toArray();
+        // $time = DataLokasi1::whereDate('created_at', $today)->pluck('created_at')->map(function ($createdAt) {
+        //     return $createdAt->format('Y-m-d'); // Extract date part in 'YYYY-MM-DD' format
+        // })->toArray();
+        // Mendapatkan bulan dan tahun saat ini
+            $currentMonth = Carbon::now()->month;
+            $currentYear = Carbon::now()->year;
+
+            // Mengambil data hanya untuk bulan dan tahun saat ini
+            $chart_mq135 = Udara::whereMonth('created_at', $currentMonth)
+                                ->whereYear('created_at', $currentYear)
+                                ->pluck('mq_135')
+                                ->toArray();
+
+            $chart_mq09 = Udara::whereMonth('created_at', $currentMonth)
+                                ->whereYear('created_at', $currentYear)
+                                ->pluck('mq_09')
+                                ->toArray();
+
+            $chart_mq07 = Udara::whereMonth('created_at', $currentMonth)
+                                ->whereYear('created_at', $currentYear)
+                                ->pluck('mq_07')
+                                ->toArray();
+
+            $time = Udara::whereMonth('created_at', $currentMonth)
+                            ->whereYear('created_at', $currentYear)
+                            ->pluck('created_at')
+                            ->map(function ($createdAt) {
+                                return $createdAt->format('Y-m-d'); // Extract date part in 'YYYY-MM-DD' format
+                            })
+                            ->toArray();
         // persen
         // Contoh nilai awal dan akhir
         $nilai_awal_mq135 = $chart_mq135[0]; // Anggap ini adalah nilai awal
@@ -67,7 +105,7 @@ class DashboardController extends Controller
           $perubahan_nilai_aqi = $nilai_akhir_aqi - $nilai_awal_aqi;
   
           // Menghitung persentase
-          $persentase_aqi = ($perubahan_nilai_aqi / $nilai_awal_aqi) * 100;
+          $persentase_aqi = round(($perubahan_nilai_aqi / $nilai_awal_aqi) * 100);
 
 
         return view('dashboard.index', compact('persentase_aqi','aqi','chart_mq135','chart_mq09','chart_mq07','time','persentase_mq135','persentase_mq09','persentase_mq07'));

@@ -103,11 +103,12 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
+            // addUdaraDataSatu();
             setInterval(() => {
                 addUdaraDataSatu();
             }, 1800000);
         });
-
+        // 1800000
         function addUdaraDataSatu() {
             $.ajax({
                 url: '/send-data-udara',
