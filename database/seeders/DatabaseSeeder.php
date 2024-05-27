@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
                 'mq_135' =>  rand(40, 150),
                 'mq_09' =>  rand(40, 150),
                 'mq_07' =>  rand(40, 150),
+                'timestamps' =>  $randomDateTime->toDateTimeString(),
                 'created_at' => $randomDateTime->toDateTimeString(),
                 'updated_at' => $randomDateTime->toDateTimeString(),
             ]);
