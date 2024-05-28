@@ -153,9 +153,9 @@ class UdaraController extends Controller
 
     public function sendData() {
         DataLokasi1::create([
-            'mq_09' => rand(20, 140),
-            'mq_07' => rand(50, 105),
-            'mq_135' => rand(20, 90),
+            'mq_09' => getRandomFloat(10.89, 140.80),
+            'mq_07' => getRandomFloat(50.89, 105.89),
+            'mq_135' => getRandomFloat(20.78, 90.89),
             'lokasi_id' => 1,
         ]);
         DataLokasi2::create([
