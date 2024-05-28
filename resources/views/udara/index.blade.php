@@ -103,11 +103,11 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
-            addUdaraDataSatu();
-            setInterval(() => {
-                addUdaraDataSatu();
-            }, 6000);
+            // addUdaraDataSatu();
         });
+        setInterval(() => {
+            addUdaraDataSatu();
+        }, 1800000);
 
         function addUdaraDataSatu() {
             $.ajax({
@@ -121,7 +121,7 @@
                 processData: false,
                 success: function(data) {
                     if (data.message == 'success') {
-                        // location.reload();
+                        location.reload();
                     }
                 },
                 error: function(errors) {

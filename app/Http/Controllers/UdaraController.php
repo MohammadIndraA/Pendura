@@ -152,64 +152,69 @@ class UdaraController extends Controller
     }
 
     public function sendData() {
+        Udara::create([
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
+        ]);
         DataLokasi1::create([
-            'mq_09' => getRandomFloat(10.89, 140.80),
-            'mq_07' => getRandomFloat(50.89, 105.89),
-            'mq_135' => getRandomFloat(20.78, 90.89),
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
             'lokasi_id' => 1,
         ]);
         DataLokasi2::create([
-            'mq_09' => rand(30, 95),
-            'mq_07' => rand(40, 170),
-            'mq_135' => rand(50, 94),
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
             'lokasi_id' => 2,
         ]);
         DataLokasi3::create([
-            'mq_09' => rand(40, 100),
-            'mq_07' => rand(30, 98),
-            'mq_135' => rand(50, 97),
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
             'lokasi_id' => 3,
         ]);
         DataLokasi4::create([
-            'mq_09' => rand(40, 99),
-            'mq_07' => rand(33, 140),
-            'mq_135' => rand(55, 109),
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
             'lokasi_id' => 4,
         ]);
         DataLokasi5::create([
-            'mq_09' => rand(35, 97),
-            'mq_07' => rand(35, 99),
-            'mq_135' => rand(45, 100),
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
             'lokasi_id' => 5,
         ]);
         DataLokasi6::create([
-            'mq_09' => rand(46, 100),
-            'mq_07' => rand(50, 98),
-            'mq_135' => rand(44, 97),
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
             'lokasi_id' => 6,
         ]);
         DataLokasi7::create([
-            'mq_09' => rand(40, 100),
-            'mq_07' => rand(30, 109),
-            'mq_135' => rand(45, 130),
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
             'lokasi_id' => 7,
         ]);
         DataLokasi8::create([
-            'mq_09' => rand(40, 120),
-            'mq_07' => rand(45, 100),
-            'mq_135' => rand(50, 99),
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
             'lokasi_id' => 8,
         ]);
         DataLokasi9::create([
-            'mq_09' => rand(50, 110),
-            'mq_07' => rand(40, 97),
-            'mq_135' => rand(30, 99),
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
             'lokasi_id' => 9,
         ]);
         DataLokasi10::create([
-            'mq_09' => rand(30, 120),
-            'mq_07' => rand(40, 89),
-            'mq_135' => rand(40, 110),
+            'mq_09' => getRandomFloat(0.48, 50.16),
+            'mq_07' => getRandomFloat(321, 561),
+            'mq_135' => getRandomFloat(18,20, 48.98),
             'lokasi_id' => 10,
         ]);
         return response()->json([
