@@ -2,7 +2,7 @@
 <footer class="footer section">
     <div class="footer__container container grid">
         <div class="footer__content">
-            <a href="#" class="footer__logo">AIR TECH</a>
+            <a href="#" class="footer__logo">PENDURA</a>
             <p class="footer__description">Cek udara di sekitar<br> andra terlebih dahulu</p>
         </div>
 

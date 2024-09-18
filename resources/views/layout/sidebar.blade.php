@@ -5,7 +5,7 @@
         </button>
         <a href="/dashboard" class="navbar-brand navbar-brand-autodark">
             {{-- <img src="./static/logo-white.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image"> --}}
-            <h1 style="font-family:'Tahoma', Geneva, Verdana, sans-serif;font-size:40px;font-weight:800;">AIR TECH
+            <h1 style="font-family:'Tahoma', Geneva, Verdana, sans-serif;font-size:40px;font-weight:800;">PENDURA
             </h1>
         </a>
         <div class="navbar-nav flex-row d-lg-none">

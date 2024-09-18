@@ -1,6 +1,6 @@
 <header class="header" id="header">
     <nav class="nav container">
-        <a href="#" class="nav__logo" style="font-family:viga;font-size:30px; margin-top:1rem;">AIR TECH</a>
+        <a href="#" class="nav__logo" style="font-family:viga;font-size:30px; margin-top:1rem;">PENDURA</a>
 
         <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">

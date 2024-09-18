@@ -32,7 +32,7 @@
         <div class="container-tight py-6">
             <div class="text-center mb-4">
                 {{-- <a href="."><img src="./static/logo.svg" height="36" alt=""></a> --}}
-                <h1 style="font-family:'Tahoma', Geneva, Verdana, sans-serif;font-size:40px;font-weight:800;">AIR TECH
+                <h1 style="font-family:'Tahoma', Geneva, Verdana, sans-serif;font-size:40px;font-weight:800;">PEPNDURA
                 </h1>
             </div>
             <form class="card card-md" action="{{ route('login.store') }}" method="get" autocomplete="off">
