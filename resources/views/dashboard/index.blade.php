@@ -178,7 +178,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-baseline">
-                                    <div class="h1 mb-3 mr-2">{{ $aqi }}</div>
+                                    <div class="h1 mb-3 mr-2" id="value-aqi">{{ $aqi }}</div>
                                     <div class="mr-auto">
                                         <span class="text-green d-inline-flex align-items-center lh-1">
                                             {{ $persentase_aqi }}% <svg xmlns="http://www.w3.org/2000/svg"
@@ -267,7 +267,6 @@
             </div>
         </footer>
     </div>
-    </div>
 @endsection
 @push('script')
     <script>
@@ -349,6 +348,8 @@
                     },
                 },
             })).render();
+
+
         });
         // @formatter:on
     </script>

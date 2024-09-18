@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\aqiInformation;
+use App\Events\get_content_aqi;
+use App\Events\getContentAqi;
 use App\Models\DataLokasi1;
 use App\Models\DataLokasi10;
 use App\Models\DataLokasi2;
@@ -37,7 +40,6 @@ class FrontController extends Controller
 
         $aqi = round(collect([$udaras['mq_135'], $udaras['mq_09'], $udaras['mq_07']])->avg());
 
-          if ($request->expectsJson()) {
            if ($aqi >= 0 && $aqi <= 50) {
             $dataUdara = view('components.udara.baik', compact('aqi', 'ke9','ke7','ke135','mq_09','mq_135', 'mq_07'))->render();
            }
@@ -60,12 +62,12 @@ class FrontController extends Controller
             $dataUdara = view('components.udara.bahaya', compact('aqi', 'ke9','ke7','ke135','mq_09','mq_135', 'mq_07'))->render();
 
             }
-            return response()->json([
-                'dataUdara' => $dataUdara,
-                'data' => $aqi,
-                'message' => 'success'
-            ]);
-        }
+            getContentAqi::dispatch($dataUdara, $aqi, 'success');
+            // return response()->json([
+            //     'dataUdara' => $dataUdara,
+            //     'data' => $aqi,
+            //     'message' => 'success'
+            // ]);
         // dd($ke2[1]->mq_09 , $mq_09->mq_09 );
 
         $udara = Udara::all();

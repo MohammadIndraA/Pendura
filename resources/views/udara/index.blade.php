@@ -26,31 +26,26 @@
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <button class="dropdown-item">Penempatan</button>
                                                         <button name="penempatan" id="penempatan" class="dropdown-item"
-                                                            value="1">Pnempatan
-                                                            satu</button>
+                                                            value="1">Taman Lokasana</button>
                                                         <button name="penempatan" id="penempatan" class="dropdown-item"
-                                                            value="2">Pnempatan dua</button>
+                                                            value="2">Bunderan Bypass Mangkubumi Kota
+                                                            Tasikmalaya</button>
                                                         <button name="penempatan" id="penempatan" class="dropdown-item"
-                                                            value="3">Pnempatan Tiga</button>
+                                                            value="3">Daerah Jalan Rs Rancamaya</button>
                                                         <button name="penempatan" id="penempatan" class="dropdown-item"
-                                                            value="4">Pnempatan
-                                                            Emapt</button>
+                                                            value="4">jalan Situ Gede</button>
                                                         <button name="penempatan" id="penempatan" class="dropdown-item"
-                                                            value="5">Pnempatan Lima</button>
+                                                            value="5">Rumah Sakit Jasa Kartini </button>
                                                         <button name="penempatan" id="penempatan" class="dropdown-item"
-                                                            value="6">Pnempatan Enam</button>
+                                                            value="6">Masjid Agung Ciawi </button>
                                                         <button name="penempatan" id="penempatan" class="dropdown-item"
-                                                            value="7">Pnempatan
-                                                            Tujuh</button>
+                                                            value="7">Bunderan Bypass</button>
                                                         <button name="penempatan" id="penempatan" class="dropdown-item"
-                                                            value="8">Pnempatan
-                                                            Delapan</button>
+                                                            value="8">Universitas Mayasari Bakti</button>
                                                         <button name="penempatan" id="penempatan" class="dropdown-item"
-                                                            value="9">Pnempatan
-                                                            Sembilan</button>
+                                                            value="9">Alun Alun Singaparna</button>
                                                         <button name="penempatan" id="penempatan" class="dropdown-item"
-                                                            value="10">Pnempatan
-                                                            Sepuluh</button>
+                                                            value="10">Gedung Bupati Tasikmalaya</button>
                                                     </div>
                                                 </div>
                                             </form>

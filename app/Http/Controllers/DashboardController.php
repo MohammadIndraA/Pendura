@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\aqiInformation;
 use App\Models\DataLokasi1;
 use App\Models\Udara;
 use Carbon\Carbon;
@@ -58,8 +59,8 @@ class DashboardController extends Controller
                             ->toArray();
         // persen
         // Contoh nilai awal dan akhir
-        $nilai_awal_mq135 = $chart_mq135[0]; // Anggap ini adalah nilai awal
-        $nilai_akhir_mq135 = $chart_mq135[count($chart_mq135) - 1]; // Anggap ini adalah nilai akhir
+        $nilai_awal_mq135 = $chart_mq135[0] ?? 1; // Anggap ini adalah nilai awal
+        $nilai_akhir_mq135 = $chart_mq135[count($chart_mq135) - 1] ?? 1; // Anggap ini adalah nilai akhir
 
         // Menghitung perubahan nilai
         $perubahan_nilai_mq135 = $nilai_akhir_mq135 - $nilai_awal_mq135;
@@ -69,8 +70,8 @@ class DashboardController extends Controller
 
 
         // Contoh nilai awal dan akhir
-        $nilai_awal_mq09 = $chart_mq09[0]; // Anggap ini adalah nilai awal
-        $nilai_akhir_mq09 = $chart_mq09[count($chart_mq09) - 1]; // Anggap ini adalah nilai akhir
+        $nilai_awal_mq09 = $chart_mq09[0] ?? 1; // Anggap ini adalah nilai awal
+        $nilai_akhir_mq09 = $chart_mq09[count($chart_mq09) - 1] ?? 1; // Anggap ini adalah nilai akhir
 
         // Menghitung perubahan nilai
         $perubahan_nilai_mq09 = $nilai_akhir_mq09 - $nilai_awal_mq09;
@@ -81,8 +82,8 @@ class DashboardController extends Controller
 
 
         // Contoh nilai awal dan akhir
-        $nilai_awal_mq07 = $chart_mq07[0]; // Anggap ini adalah nilai awal
-        $nilai_akhir_mq07 = $chart_mq07[count($chart_mq07) - 1]; // Anggap ini adalah nilai akhir
+        $nilai_awal_mq07 = $chart_mq07[0] ?? 1; // Anggap ini adalah nilai awal
+        $nilai_akhir_mq07 = $chart_mq07[count($chart_mq07) - 1] ?? 1; // Anggap ini adalah nilai akhir
 
         // Menghitung perubahan nilai
         $perubahan_nilai_mq07 = $nilai_akhir_mq07 - $nilai_awal_mq07;
@@ -106,8 +107,6 @@ class DashboardController extends Controller
   
           // Menghitung persentase
           $persentase_aqi = round(($perubahan_nilai_aqi / $nilai_awal_aqi) * 100);
-
-
         return view('dashboard.index', compact('persentase_aqi','aqi','chart_mq135','chart_mq09','chart_mq07','time','persentase_mq135','persentase_mq09','persentase_mq07'));
     }
     // public function front()

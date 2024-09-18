@@ -14,9 +14,11 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
     <title>Sitem Kualitas Udara</title>
+    @vite('resources/css/app.css')
 </head>
 
 <body>
+
     <style>
         #map {
             height: 500px;
@@ -741,7 +743,7 @@
     <a href="#" class="scrollup" id="scroll-up">
         <i class='bx bx-up-arrow-alt scrollup__icon'></i>
     </a>
-
+    @vite('resources/js/app.js')
     <!--=============== MAIN JS ===============-->
     <script src="js/main.js"></script>
     <script src="js/jquery.js"></script>
@@ -760,20 +762,25 @@
         });
     </script>
     <script>
-        // Hybrid: s, h;
-        // Satellite: s;
-        // Streets: m;
-        // Terrain: p;
         $(document).ready(function() {
             getDataLokasi();
             // getContent();
-            renderContentAqi();
-            setInterval(() => {
-                getDataLokasi();
-                renderContentAqi();
-            }, 15000);
+            // renderContentAqi();
+            // setInterval(() => {
+            //     getDataLokasi();
+            //     renderContentAqi();
+            // }, 15000);
+            rendrUlanag();
         });
 
+        function rendrUlanag() {
+            window.Echo.channel("get-content").listen("getContentAqi", (event) => {
+                console.log(event);
+                console.log("berhasil listen pusher get_content_aqi");
+                $('#content-aqi').html(event.dataUdara);
+            });
+
+        }
         var map = L.map('map').setView([-7.3482146814747935, 108.01057254716987], 11);
         L.tileLayer('http://{s}.google.com/vt?lyrs=s,h&x={x}&y={y}&z={z}', {
             maxZoom: 20,
@@ -810,10 +817,10 @@
                 contentType: false,
                 processData: false,
                 success: function(data) {
-                    console.log(data);
+                    // console.log(data);
                     if (data.message == 'success') {
                         $.each(data.data, function(index, item) {
-                            console.log(item);
+                            // console.log(item);
                             L.marker([parseFloat(item.lokasi.lokasi.longitude), parseFloat(item.lokasi
                                 .lokasi.latitude)], {
                                 icon: item.aqi < 51 ? greenIcon :
@@ -832,25 +839,25 @@
             });
         }
 
-        function renderContentAqi() {
-            $.ajax({
-                url: '/',
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    if (data.message == 'success') {
-                        console.log(data.dataUdara);
-                        $('#content-aqi').html(data.dataUdara);
-                    }
-                },
+        // function renderContentAqi() {
+        //     $.ajax({
+        //         url: '/',
+        //         type: 'GET',
+        //         cache: false,
+        //         contentType: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             if (data.message == 'success') {
+        //                 console.log(data.dataUdara);
+        //                 $('#content-aqi').html(data.dataUdara);
+        //             }
+        //         },
 
-                error: function(errors) {
-                    console.log(errors);
-                }
-            });
-        }
+        //         error: function(errors) {
+        //             console.log(errors);
+        //         }
+        //     });
+        // }
     </script>
 </body>
 

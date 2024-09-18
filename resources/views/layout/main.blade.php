@@ -24,11 +24,12 @@
             display: none;
         }
     </style>
+    @vite('resources/css/app.css')
+
 </head>
 
 <body class="antialiased">
     {{-- sidebar --}}
-
     @includeIf('layout.sidebar')
     @yield('content')
     <div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
@@ -153,10 +154,21 @@
     <script src="{{ asset('tabler/dist/libs/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
     <!-- Tabler Core -->
     <script src="{{ asset('tabler/dist/js/tabler.min.js') }}"></script>
+    @vite('resources/js/app.js')
+
     @stack('script')
 
     <script>
         document.body.style.display = "block"
+
+        document.addEventListener("DOMContentLoaded", function() {
+            window.Echo.channel("aqi").listen("aqiInformation", (event) => {
+                console.log("berhasil listen pusher");
+                console.log(event);
+                document.getElementById('value-aqi').innerText = event.data;
+            });
+
+        });
     </script>
 </body>
 
