@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('mq_135');
             $table->string('mq_09');
             $table->string('mq_07');
+            $table->string('mq_02');
+            $table->string('mq_05');
             $table->timestamp('timestamps');
             $table->timestamps();
         });

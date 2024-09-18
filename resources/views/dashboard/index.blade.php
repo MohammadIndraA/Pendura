@@ -203,40 +203,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="page-header d-print-none">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h2 class="page-title">
-                                Charts
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row row-cards">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <h3 class="card-title">Social referrals</h3>
-                                    <div class="ml-auto">
-                                        <div class="dropdown">
-                                            <a class="dropdown-toggle text-muted" href="#" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">Last 30 days</a>
-                                            {{-- <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item active" href="#">Last 7 days</a>
-                                                <a class="dropdown-item" href="#">Last 30 days</a>
-                                                <a class="dropdown-item" href="#">Last 3 months</a>
-                                            </div> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="chart-social-referrals"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
         <footer class="footer footer-transparent d-print-none">
             <div class="container">

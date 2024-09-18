@@ -108,8 +108,8 @@
             </div>
         </section>
         {{-- map --}}
-        <section class="services section container" id="map">
-        </section>
+        {{-- <section class="services section container" id="map">
+        </section> --}}
         <!--=============== APP ===============-->
         <section class="app section container" id="contact">
             <div class="app__container grid">

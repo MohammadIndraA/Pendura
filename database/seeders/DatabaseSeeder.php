@@ -22,30 +22,49 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(5)->create();
         //  Udara::factory(30)->create();
 
-
-        // udaras
-        $startDate = Carbon::create(2024, 4, 1);
-        $endDate = Carbon::create(2024, 5, 27);
-        while ($startDate->lte($endDate)) {
-            // Generate random minutes and seconds
-            $randomMinutes = rand(1, 60);
-            $randomSeconds = rand(1, 60);
-
-            // Clone the start date and set random minutes and seconds
-            $randomDateTime = $startDate->copy()->setTime(0, $randomMinutes, $randomSeconds);
-
-            DB::table('udaras')->insert([
-                'mq_135' =>  rand(40, 150),
-                'mq_09' =>  rand(40, 150),
-                'mq_07' =>  rand(40, 150),
-                'timestamps' =>  $randomDateTime->toDateTimeString(),
-                'created_at' => $randomDateTime->toDateTimeString(),
-                'updated_at' => $randomDateTime->toDateTimeString(),
+        DB::table('users')->insert([
+            'name' => "admin",
+            'username' => "admin",
+            'email' => "admin@gmail.com",
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             ]);
 
-            // Increment the date by one day
-            $startDate->addDay();
-        }
+         for ($i=1; $i < 10; $i++) { 
+            DB::table('udaras')->insert([
+                         'mq_135' =>  rand(40, 150),
+                         'mq_09' =>  rand(40, 150),
+                         'mq_07' =>  rand(40, 150),
+                         'mq_02' =>  rand(40, 150),
+                         'mq_05' =>  rand(40, 150),
+                         'timestamps' =>  now(),
+                         'created_at' => now(),
+                         'updated_at' => now(),
+                     ]);
+         }  
+        // udaras
+        // $startDate = Carbon::create(2024, 4, 1);
+        // $endDate = Carbon::create(2024, 5, 27);
+        // while ($startDate->lte($endDate)) {
+        //     // Generate random minutes and seconds
+        //     $randomMinutes = rand(1, 60);
+        //     $randomSeconds = rand(1, 60);
+
+        //     // Clone the start date and set random minutes and seconds
+        //     $randomDateTime = $startDate->copy()->setTime(0, $randomMinutes, $randomSeconds);
+
+        //     DB::table('udaras')->insert([
+        //         'mq_135' =>  rand(40, 150),
+        //         'mq_09' =>  rand(40, 150),
+        //         'mq_07' =>  rand(40, 150),
+        //         'timestamps' =>  $randomDateTime->toDateTimeString(),
+        //         'created_at' => $randomDateTime->toDateTimeString(),
+        //         'updated_at' => $randomDateTime->toDateTimeString(),
+        //     ]);
+
+        //     // Increment the date by one day
+        //     $startDate->addDay();
+        // }
     
 
 

@@ -16,7 +16,7 @@
                                     <div class="card-header">
                                         <h3 class="card-title">Data Sensor</h3>
                                         <div class="ml-auto lh-1" style="color: aqua">
-                                            <form method="get" id="form-penempatan">
+                                            {{-- <form method="get" id="form-penempatan">
                                                 <div class="dropdown">
                                                     <button
                                                         class="dropdown-toggle text-muted pt-2 pb-2 pr-2 pl-2 bg-white rounded-2px"
@@ -48,7 +48,7 @@
                                                             value="10">Gedung Bupati Tasikmalaya</button>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </form> --}}
                                         </div>
                                     </div>
                                     <div class="table-responsive">
@@ -59,6 +59,8 @@
                                                     <th>MQ 135</th>
                                                     <th>MQ 09</th>
                                                     <th>MQ 07</th>
+                                                    <th>MQ 02</th>
+                                                    <th>MQ 05</th>
                                                     @if (request()->query('penempatan'))
                                                         <th>Wilayah</th>
                                                     @endif
@@ -72,6 +74,8 @@
                                                         <td>{{ $item->mq_135 }}</td>
                                                         <td>{{ $item->mq_09 }}</td>
                                                         <td>{{ $item->mq_07 }}</td>
+                                                        <td>{{ $item->mq_02 }}</td>
+                                                        <td>{{ $item->mq_05 }}</td>
                                                         @if ($item->lokasi != null)
                                                             <td>{{ $item->lokasi->name }}</td>
                                                         @endif
