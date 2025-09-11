@@ -3,7 +3,7 @@
     <div class="footer__container container grid">
         <div class="footer__content">
             <a href="#" class="footer__logo">SIPENDURA</a>
-            <p class="footer__description">Cek udara di sekitar<br> andra terlebih dahulu</p>
+            <p class="footer__description">Cek udara di sekitar<br> anda terlebih dahulu</p>
         </div>
 
         <div class="footer__content">
